@@ -40,7 +40,7 @@
 
 - AWS
 - Ubuntu 18.04.5 LTS
-- Jupyter notebook
+- Jupyter Lab
 - T4 GPU 4개
 
 # 5. 개발 사항
