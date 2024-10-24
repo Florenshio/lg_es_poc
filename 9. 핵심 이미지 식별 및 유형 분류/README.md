@@ -24,32 +24,32 @@
 ![이미지 감지분류_프로세스](./png/이미지%20감지분류_프로세스.png)
 
 
-> Step 1. 1차 분류 모델 학습
+> **Step 1. 1차 분류 모델 학습**
 
 1. 문서 내의 핵심 정보에 해당하는 각 이미지에 대해 바운딩 박스 및 클래스 라벨링
 2. 이미지와 라벨링 데이터를 YOLOv8에 Input
     - 라벨링 데이터 : 바운딩 박스의 좌표와 클래스가 기록된 txt파일
 3. YOLOv8 Detection Model 학습
 
-> Step 2. 2차 분류 모델 학습
+> **Step 2. 2차 분류 모델 학습**
 
 1. 1차 분류 모델을 활용해 문서 내에 존재하는 도면 이미지를 Crop
 2. Crop된 이미지에 알맞는 클래스 라벨링
     - 학습 데이터 디렉토리 안에 각 클래스 별 디렉토리 생성 후 알맞는 디렉토리에 이미지를 넣는 방식
 3. YOLOv8 Classification Model 학습
 
-> Step 3. 핵심 이미지 식별 및 유형 분류
+> **Step 3. 핵심 이미지 식별 및 유형 분류**
 
 1. 입력된 문서를 PDF 변환 후 각 페이지 별로 이미지 추출
 2. YOLOv8 Detection Model로 문서 내 중요한 도면 식별 및 1차 분류
-    (1) 1차 분류 클래스 3가지
+    1. 1차 분류 클래스 3가지
         1. Drawing (도면)
         2. Table (표)
         3. Column (열)
             - Table과 Column은 핵심 Text 식별 task에 필요한 클래스
             - 이미지 식별/분류 task는 Drawing 결과 값만 필요
 3. YOLOv8 Classification Model로 Crop된 도면 이미지 2차 분류
-    (1) 2차 분류 클래스 5가지
+    1. 2차 분류 클래스 5가지
         1. Cell
         2. Assy
         3. Roll
