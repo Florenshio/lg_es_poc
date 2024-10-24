@@ -1,0 +1,13 @@
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt or 3) list: [path/to/imgs1, path/to/imgs2,...]
+path: /data/LG_ES_POC/002. PoC_개발/09. 핵심이미지 식별/another_workspace/03. 파인튜닝 모델/train/231111/
+train: train
+val: val
+test: test
+
+# Classes
+names:
+	0: drawing
+  1: table
+  2: col
+  
+# Hyperparameters
